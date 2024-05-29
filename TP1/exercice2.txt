@@ -1,0 +1,85 @@
+1. À l’aide de la commande hostname, déterminez l’identité de votre machine (son nom, son
+nom de domaine et son adresse réseau (IP)).
+hostname - nom de la machine
+hostname -d - nom de domaine
+hostname -I - adresse IPv4
+
+
+2. Sur lucy, puis sur lulu, utilisez la commande ping avec les arguments suivants www.google.
+com puis www.laplanete.uk et www. Qu’en déduisez-vous ?
+lucy : 
+ping www.google.com - ping vers un site web
+ping www.laplanete.uk - Nom ou service inconnu
+ping www - PING www(trotinette.informatique.univ-paris-diderot.fr (2001:660:3301:8070::80)) 56 data bytes
+
+lulu :
+ping www.google.com - ping vers google
+ping www.laplanete.uk - Nom ou service inconnu
+ping www - PING trotinette.informatique.univ-paris-diderot.fr (194.254.199.80) 56(84) bytes of data.
+
+mon pc :
+ping www.google.com - ping vers un site web
+ping www.laplanete.uk - Nom ou service inconnu
+ping www - PING brahma.jussieu.fr (134.157.254.2) 56(84) bytes of data.
+
+
+3. Pourquoi la commande ping www rend-elle des résultats différents sur lucy et sur votre
+machine personelle ?
+
+Car les machines n'ont pas la même configuration réseau.
+
+
+4. En utilisant successivement les commandes host et dig, déterminez les adresses IPv4 et IPv6
+de www.informatique.univ-paris-diderot.fr, puis de www.free.fr. Quels sont les noms
+d’hôtes associés aux adresses obtenues ?
+
+host www.informatique.univ-paris-diderot.fr:
+www.informatique.univ-paris-diderot.fr is an alias for trotinette.informatique.univ-paris-diderot.fr.
+trotinette.informatique.univ-paris-diderot.fr has address 194.254.199.80
+trotinette.informatique.univ-paris-diderot.fr has IPv6 address 2001:660:3301:8070::80
+
+host www.free.fr:
+www.free.fr has address 212.27.48.10
+www.free.fr has IPv6 address 2a01:e0c:1::1
+
+dig www.informatique.univ-paris-diderot.fr A - obtenir l'adresse IPv4
+dig www.informatique.univ-paris-diderot.fr AAAA - obtenir l'adresse IPv6
+
+dig www.free.fr A - obtenir l'adresse IPv4
+dig www.free.fr AAAA - obtenir l'adresse IPv6
+
+
+5. Déterminez à l’aide des commandes host et dig comment connaître les serveurs de courrier
+électronique d’un réseau. Pour cela, regardez sur la page du manuel ce que permet et comment
+s’utilise la requête MX (pour mail exchanger). Déterminez ensuite les serveurs de courrier
+électronique des réseaux informatique.univ-paris-diderot.fr et free.fr
+
+host -t MX informatique.univ-paris-diderot.fr:
+informatique.univ-paris-diderot.fr mail is handled by 10 korolev.univ-paris7.fr.
+informatique.univ-paris-diderot.fr mail is handled by 10 potemkin.univ-paris7.fr.
+informatique.univ-paris-diderot.fr mail is handled by 30 shiva.jussieu.fr.
+
+host -t MX free.fr:
+free.fr mail is handled by 10 mx1.free.fr.
+free.fr mail is handled by 20 mx2.free.fr.
+
+
+6. De même déterminez les serveurs DNS des domaines informatique.univ-paris-diderot.
+fr et free.fr en utilisant l’option NS.
+
+host -t NS informatique.univ-paris-diderot.fr:
+informatique.univ-paris-diderot.fr name server korolev.univ-paris7.fr.
+informatique.univ-paris-diderot.fr name server potemkin.univ-paris7.fr.
+informatique.univ-paris-diderot.fr name server shiva.jussieu.fr.
+
+host -t NS free.fr:
+free.fr name server freens3-scw.free.fr.
+free.fr name server freens2-g20.free.fr.
+free.fr name server freens1-g20.free.fr.
+
+
+7. Quelle est le nom complet de la machine avec l’IP 2a02:ec80:600:ed1a::3 ?
+
+host 2a02:ec80:600:ed1a::3 :
+3.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.a.1.d.e.0.0.6.0.0.8.c.e.2.0.a.2.ip6.arpa domain name pointer ncredir-lb.drmrs.wikimedia.org
+

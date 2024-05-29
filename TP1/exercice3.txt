@@ -1,0 +1,26 @@
+1. Déterminez le port associé au service discard (Indication : vous avez vu en cours où 
+trouver
+la liste des services)
+
+grep discard /etc/services
+discard		9/tcp
+discard		9/udp
+
+2. À l’aide de la commande nc, déterminez l’heure (service daytime, dont la documentation
+est RFC 867) qu’il est sur la machine lulu. Appelez ce service à la fois par son nom et par
+son numéro de port et profitez en aussi pour aller voir la page Wikipedia de "Requests For
+Comments" pour connaître ce que sont les RFC. Consultez ensuite la documentation RFC 867.
+
+nc lulu daytime
+nc lulu 13
+
+3.  l’aide de la commande telnet, accédez au service echo (RFC 862) sur la machine lulu. 
+Tapez alors du texte avec des retours à la ligne. Comment pouvez quitter l’application
+telnet ?
+Faire de même avec la commande nc
+
+sur la machine lulu:
+
+telnet lulu echo
+
+nc lulu 7

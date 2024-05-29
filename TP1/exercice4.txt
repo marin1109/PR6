@@ -1,0 +1,11 @@
+HELO lulu
+MAIL FROM: marin.postolachi@etu.u-paris.fr
+RCPT TO: postolachimarin1109@gmail.com
+DATA
+From :marin.postolachi@etu.u-paris.fr
+To :postolachimarin1109@gmail.com
+Subject :Test
+
+Bonjour, ceci est un test de mail en SMTP.
+
+QUIT
